@@ -15,7 +15,8 @@ const postSchema = new mongoose.Schema({
     }
 }, { timestamps: true })
 
-postSchema.index({ user: 1, createdAt: -1 });
+postSchema.index({ user: 1, createdAt: -1 }); // For user based posts
+postSchema.index({ createdAt: -1 }); // For feed based posts
 
 const postModel = mongoose.model("Post", postSchema)
 
