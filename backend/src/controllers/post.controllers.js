@@ -36,6 +36,17 @@ async function likePostController(req, res) {
     let user = req.user.id;
     let post = req.params.id
 
+    const alreadyLiked = await likeModel.findOne({
+        user,
+        post
+    })
+
+    if(alreadyLiked) {
+        return res.status(409).json({
+            message: "Post already liked"
+        })
+    }
+
     const like = await likeModel.create({
         user,
         post
