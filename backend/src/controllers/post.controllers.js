@@ -1,7 +1,8 @@
 const ImageKit = require('@imagekit/nodejs');
 const { toFile } = require('@imagekit/nodejs');
 const sharp = require("sharp")
-const postModel = require("../models/posts.model")
+const postModel = require("../models/posts.model");
+const likeModel = require('../models/likes.model');
 
 async function createPostController(req, res) {
     const { caption } = req.body
@@ -31,6 +32,43 @@ async function createPostController(req, res) {
     })
 }
 
+async function likePostController(req, res) {
+    let user = req.user.id;
+    let post = req.params.id
+
+    const like = await likeModel.create({
+        user,
+        post
+    }) 
+
+    res.status(201).json({
+        message: "Post liked successfully"
+    })
+}
+
+async function unlikePostController(req, res) {
+    let user = req.user.id;
+    let post = req.params.id
+
+    await likeModel.deleteOne({
+        user,
+        post
+    }) 
+
+    res.status(200).json({
+        message: "Post unliked successfully"
+    })
+}
+
+async function getFeedController(req, res) {
+    const posts = await postModel.find()
+
+    res.status(200).json({
+        message: "Posts fetched successfully",
+        posts
+    })
+}
+
 module.exports = {
-    createPostController
+    createPostController, getFeedController, likePostController, unlikePostController
 }

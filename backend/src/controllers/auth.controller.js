@@ -34,8 +34,7 @@ async function registerController(req, res) {
     res.cookie("token", token)
 
     res.status(201).json({
-        message: "User registered successfully",
-        data: user
+        message: "User registered successfully"
     })
 }
 
@@ -50,7 +49,7 @@ async function loginController(req, res) {
 
     if (!user) {
         return res.status(400).json({
-            message: "User with such email or username doesn't exist"
+            message: "Invalid credentials"
         })
     }
 
