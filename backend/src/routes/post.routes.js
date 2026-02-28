@@ -17,14 +17,19 @@ postRouter.post("/create", identifyUser, upload.single("image"), postController.
 postRouter.get("/feed", identifyUser, postController.getFeedController)
 
 /**
- * @route POST /api/post/like/:id
+ * @route POST /api/post/:id/like
  */
 
 postRouter.post("/:id/like", identifyUser, postController.likePostController)
 
 /**
- * @route DELETE /api/post/like/:id
+ * @route DELETE /api/post/:id/like
  */
 postRouter.delete("/:id/like", identifyUser, postController.unlikePostController)
+
+/**
+ * @route POST /api/post/:id/comment
+ */
+postRouter.post("/:id/comment", identifyUser, postController.commentController)
 
 module.exports = postRouter
