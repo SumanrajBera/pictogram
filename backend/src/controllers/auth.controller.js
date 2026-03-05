@@ -34,7 +34,11 @@ async function registerController(req, res) {
     res.cookie("token", token)
 
     res.status(201).json({
-        message: "User registered successfully"
+        message: "User registered successfully",
+        user: {
+            id: user._id,
+            username
+        }
     })
 }
 
@@ -55,7 +59,7 @@ async function loginController(req, res) {
 
     const confirmPassword = await bcrypt.compare(password, user.password)
 
-    if(!confirmPassword) {
+    if (!confirmPassword) {
         return res.status(400).json({
             message: "Invalid Credentials"
         })
@@ -69,11 +73,25 @@ async function loginController(req, res) {
     res.cookie("token", token)
 
     res.status(200).json({
-        message: "User Logged In Successfully"
+        message: "User Logged In Successfully",
+        user: {
+            id: user._id,
+            username
+        }
+    })
+}
+
+async function getMeController(req, res) {
+    const user = await userModel.findById(req.user.id)
+
+    res.status(200).json({
+        message: "User details fetched successfully",
+        user
     })
 }
 
 module.exports = {
     registerController,
-    loginController
+    loginController,
+    getMeController
 }
