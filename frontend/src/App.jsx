@@ -4,6 +4,7 @@ import { router } from './app.routes'
 import { AuthProvider } from './feature/auth/auth.context'
 import "./feature/shared/global.scss"
 import { ToastContainer } from 'react-toastify';
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (

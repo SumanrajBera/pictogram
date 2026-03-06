@@ -3,11 +3,32 @@ import { createBrowserRouter } from 'react-router-dom'
 import Login from './feature/auth/pages/Login'
 import Register from './feature/auth/pages/Register'
 import Protected from './feature/auth/components/Protected'
+import Layout from './layouts/Layout'
+import Settings from './feature/settingsfeature/pages/Settings'
+import Profile from './feature/profile/pages/Profile'
 
 export const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Protected><h1>Welcome to Pictogram</h1></Protected>
+        element: <Protected />,
+        children: [
+            {
+                element: <Layout />,
+                children: [
+                    {
+                        index: true,
+                        element: <h1>Welcome to Pictogram</h1>
+                    },
+                    {
+                        path: "/profile",
+                        element: <Profile />
+                    },
+                    {
+                        path: "/settings",
+                        element: <Settings />
+                    }
+                ]
+            }
+        ]
     },
     {
         path: "/login",

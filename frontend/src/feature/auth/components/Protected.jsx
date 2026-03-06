@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAuth } from '../hook/useAuth'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate, Outlet, useNavigate } from 'react-router'
 
 const Protected = ({ children }) => {
     const { user, loading } = useAuth()
@@ -13,7 +13,7 @@ const Protected = ({ children }) => {
         return <Navigate to="/login" />
     }
 
-    return children
+    return <Outlet />
 }
 
 export default Protected
