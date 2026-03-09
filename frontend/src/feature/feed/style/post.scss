@@ -1,0 +1,65 @@
+.post {
+    width: 100%;
+    max-width: 450px;
+    background-color: #e2e2e2;
+    border-radius: .5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            .profImg {
+                width: 3rem;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+
+    .middle {
+        .img {
+            width: 100%;
+            border-radius: .5rem;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .bottom {
+        .toolRibbon {
+            display: flex;
+            justify-content: space-between;
+
+            .icon {
+                width: 1.5rem;
+            }
+
+            .left {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+    }
+}

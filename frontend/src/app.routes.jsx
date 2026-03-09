@@ -6,6 +6,7 @@ import Protected from './feature/auth/components/Protected'
 import Layout from './layouts/Layout'
 import Settings from './feature/settingsfeature/pages/Settings'
 import Profile from './feature/profile/pages/Profile'
+import Feed from './feature/feed/pages/Feed'
 
 export const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <h1>Welcome to Pictogram</h1>
+                        element: <Feed />
                     },
                     {
                         path: "/profile",
