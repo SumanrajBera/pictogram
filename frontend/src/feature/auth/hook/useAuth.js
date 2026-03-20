@@ -25,7 +25,6 @@ export function useAuth() {
         } finally {
             setLoading(false)
         }
-
     }
 
     async function get_me() {

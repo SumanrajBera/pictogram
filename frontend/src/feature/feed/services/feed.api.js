@@ -1,10 +1,11 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:3000",
+    withCredentials: true
 })
 
 export async function getFeed() {
-    let response = await api.get("/feed")
+    let response = await api.get("/api/posts/feed")
     return response.data
 }

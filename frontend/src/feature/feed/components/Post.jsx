@@ -6,9 +6,9 @@ const Post = ({ profileImg, username, post, caption }) => {
             <div className="top">
                 <div className="left">
                     <div className="profImg">
-                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                        <img src={profileImg} alt="" />
                     </div>
-                    <div className="username">Rashmika Mandanna</div>
+                    <div className="username">{username}</div>
                 </div>
                 <div className="right">
                     <button>Follow</button>
@@ -16,7 +16,7 @@ const Post = ({ profileImg, username, post, caption }) => {
             </div>
             <div className="middle">
                 <div className="img">
-                    <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    <img src={post} alt="" />
                 </div>
             </div>
             <div className="bottom">
@@ -39,7 +39,7 @@ const Post = ({ profileImg, username, post, caption }) => {
                     </div>
                 </div>
                 <div className="caption">
-                    <p><b>Rashmika Mandanna</b> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, deserunt? Fugit est ab vel similique. Non numquam eaque quae provident similique debitis doloribus velit delectus doloremque reiciendis nobis minima, asperiores tempora quod corporis dicta! Dolorum reprehenderit veritatis a reiciendis corrupti impedit deserunt. Consequatur tempora consectetur laboriosam excepturi, tenetur recusandae cumque!</p>
+                    <p><b>{username}</b> {caption}</p>
                 </div>
             </div>
         </div>

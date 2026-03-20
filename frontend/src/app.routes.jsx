@@ -7,6 +7,7 @@ import Layout from './layouts/Layout'
 import Settings from './feature/settingsfeature/pages/Settings'
 import Profile from './feature/profile/pages/Profile'
 import Feed from './feature/feed/pages/Feed'
+import { FeedProvider } from './feature/feed/feed.context'
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <Feed />
+                        element: <FeedProvider>
+                            <Feed />
+                        </FeedProvider>
                     },
                     {
                         path: "/profile",
