@@ -94,7 +94,7 @@ async function unlikePostController(req, res) {
 async function getFeedController(req, res) {
     const user = req.user.id
 
-    const posts = await postModel.find().sort({createdAt: -1}).lean()
+    const posts = await postModel.find().sort({createdAt: -1}).populate("user")
 
     res.status(200).json({
         message: "Posts fetched successfully",
